@@ -1,4 +1,3 @@
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -18,9 +17,6 @@ public class P5HttpHandler implements HttpHandler {
             is.skip(0x1000);
         }
         is.close();
-
-        Headers h =ex.getResponseHeaders();
-        h.set("content-type", "text/html");
 
         String root = new File("src/main/public").getCanonicalPath();
         URI uri = ex.getRequestURI();
